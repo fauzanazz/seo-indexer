@@ -1,0 +1,32 @@
+# SEO Indexer Configuration
+# Copy to ~/.config/indexer/config.toml
+# Or run: indexer config init
+
+[indexnow]
+# Get your API key from https://www.indexnow.org/
+# api_key = "your-api-key-here"
+# key_location = "https://yoursite.com/your-api-key.txt"
+
+[google]
+# Path to Google Cloud service account JSON
+# Generate one at https://console.cloud.google.com/iam-admin/serviceaccounts
+# service_account_json = "~/.config/indexer/google-sa.json"
+
+[ping]
+# Ping services to notify (google, bing)
+services = ["google", "bing"]
+
+[general]
+# Default indexing method: all, indexnow, google, ping
+default_method = "all"
+# Maximum submissions per minute (rate limiting for bulk jobs)
+rate_limit_per_minute = 60
+
+[storage]
+# SQLite database path (default: ~/.local/share/indexer/submissions.db)
+# path = "~/.local/share/indexer/submissions.db"
+
+[dashboard]
+# Web dashboard settings
+port = 3000
+host = "127.0.0.1"

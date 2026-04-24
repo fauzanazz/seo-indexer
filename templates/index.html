@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>SEO Indexer Dashboard</h1>
+<div class="stats">
+    <div class="card stat">
+        <div class="stat-value">{{ total_submissions }}</div>
+        <div class="stat-label">Total Submissions</div>
+    </div>
+    <div class="card stat">
+        <div class="stat-value">{{ success_rate }}%</div>
+        <div class="stat-label">Success Rate</div>
+    </div>
+</div>
+<div class="card">
+    <h2>Recent Submissions</h2>
+    <table>
+        <thead><tr><th>URL</th><th>Method</th><th>Status</th><th>Time</th></tr></thead>
+        <tbody>
+        {% for r in recent %}
+        <tr>
+            <td>{{ r.url }}</td>
+            <td>{{ r.method }}</td>
+            <td class="{% if r.success %}success{% else %}fail{% endif %}">{% if r.success %}OK{% else %}FAIL{% endif %}</td>
+            <td>{{ r.submitted_at }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

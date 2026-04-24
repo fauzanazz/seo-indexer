@@ -1,0 +1,5 @@
+<div class="card" style="background:{% if success %}#f0fdf4{% else %}#fef2f2{% endif %};">
+    <strong class="{% if success %}success{% else %}fail{% endif %}">{% if success %}Success{% else %}Failed{% endif %}</strong>
+    <p>Method: {{ method }}</p>
+    <p>{{ message }}</p>
+</div>

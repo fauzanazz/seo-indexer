@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Submit URL</h1>
+<div class="card">
+    <form hx-post="/submit" hx-target="#result" hx-swap="innerHTML">
+        <input type="url" name="url" placeholder="https://example.com/page" required>
+        <select name="method">
+            <option value="all">All Methods</option>
+            <option value="indexnow">IndexNow</option>
+            <option value="google">Google</option>
+            <option value="ping">Ping</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result" style="margin-top:1rem;"></div>
+</div>
+{% endblock %}

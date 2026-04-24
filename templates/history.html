@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Submission History</h1>
+<div class="card">
+    <table>
+        <thead><tr><th>URL</th><th>Method</th><th>Status</th><th>Message</th><th>Time</th></tr></thead>
+        <tbody>
+        {% for r in submissions %}
+        <tr>
+            <td>{{ r.url }}</td>
+            <td>{{ r.method }}</td>
+            <td class="{% if r.success %}success{% else %}fail{% endif %}">{% if r.success %}OK{% else %}FAIL{% endif %}</td>
+            <td>{% if let Some(msg) = r.message.as_ref() %}{{ msg }}{% else %}-{% endif %}</td>
+            <td>{{ r.submitted_at }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
